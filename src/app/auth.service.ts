@@ -17,7 +17,7 @@ export class AuthService {
       localStorage.setItem(this.sessionName + webAPIName, token);
     }
   }
-//get token
+
   private getTokenFromStorage(webAPIName: string): string | null {
     if (typeof localStorage !== 'undefined') {
       return localStorage.getItem(this.sessionName + webAPIName);
