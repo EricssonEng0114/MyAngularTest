@@ -7,7 +7,7 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { ProductListComponent } from './features/product/product-list/product-list.component';
 import { StockService } from './features/product/stock.service';
 import { AuthService } from './auth.service';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,9 @@ import { provideHttpClient } from '@angular/common/http';
   providers: [
     StockService,
     AuthService,
-    provideHttpClient(),
+    provideHttpClient(
+      withFetch()
+    ),
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
