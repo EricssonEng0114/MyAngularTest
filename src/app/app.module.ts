@@ -8,6 +8,9 @@ import { ProductListComponent } from './features/product/product-list/product-li
 import { StockService } from './features/product/stock.service';
 import { AuthService } from './auth.service';
 import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
     StockService,
@@ -25,7 +30,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     provideHttpClient(
       withFetch()
     ),
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
